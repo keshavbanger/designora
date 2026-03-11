@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
        1. Sticky Navbar
        ========================================================================== */
     const navbar = document.getElementById('navbar');
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
        3. Scroll Animations
        ========================================================================== */
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.style.opacity = '1';
         item.style.transform = 'scale(1)';
     });
-    
+
     /* ==========================================================================
        6. Booking Form Submission (Prevent Default)
        ========================================================================== */
@@ -115,18 +115,18 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const submitBtn = bookingForm.querySelector('.form-submit');
             const originalText = submitBtn.innerText;
-            
-            submitBtn.innerText = 'Appointment Requested...';
+
+            submitBtn.innerText = 'Requesting...';
             submitBtn.style.backgroundColor = 'var(--color-black)';
             submitBtn.style.color = 'var(--color-white)';
-            
+
             // Simulate API call
             setTimeout(() => {
-                alert('Thank you for booking! We will contact you shortly to confirm your appointment.');
+                alert('Thank you! Your request has been received. We will contact you shortly.');
                 bookingForm.reset();
                 submitBtn.innerText = originalText;
-                submitBtn.style.backgroundColor = 'var(--color-white)';
-                submitBtn.style.color = 'var(--color-gold)';
+                submitBtn.style.backgroundColor = 'var(--color-black)';
+                submitBtn.style.color = 'var(--color-white)';
             }, 1500);
         });
     }

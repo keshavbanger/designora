@@ -2,27 +2,32 @@
    CSS Custom Properties & Reset
    ========================================================================== */
 :root {
-    /* Color Palette */
-    --color-off-white: #FAF7F2;
-    --color-gold: #C9A96E;
+    /* Color Palette - Interior Design Aesthetic */
+    --color-off-white: #F8F6F4;
+    --color-gold: #B89947;
+    /* Matte Brass */
     --color-black: #1A1A1A;
-    --color-taupe: #E8DDD0;
+    /* Deep Slate/Charcoal */
+    --color-taupe: #EAE6DE;
+    /* Warm Grey/Stone */
     --color-white: #FFFFFF;
-    --color-gray: #777777;
+    --color-gray: #666666;
     --color-border: rgba(26, 26, 26, 0.1);
-    
+
     /* Typography */
-    --font-serif: 'Cormorant Garamond', serif;
-    --font-sans: 'Jost', sans-serif;
-    
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Poppins', sans-serif;
+
     /* Transitions & Shadows */
     --transition-fast: 0.3s ease;
     --transition-slow: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
-    --shadow-hover: 0 20px 40px rgba(201, 169, 110, 0.15);
+    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -42,9 +47,14 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-serif);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.2;
     color: var(--color-black);
 }
@@ -85,6 +95,10 @@ button {
     padding: 100px 0;
 }
 
+.mt-4 {
+    margin-top: 30px;
+}
+
 @media (max-width: 768px) {
     .section-padding {
         padding: 60px 0;
@@ -111,10 +125,11 @@ button {
     color: var(--color-gold);
     margin-bottom: 15px;
     font-weight: 500;
+    font-family: var(--font-sans);
 }
 
 .section-heading {
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-bottom: 20px;
 }
 
@@ -133,7 +148,7 @@ button {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-radius: 0;
+    border-radius: 2px;
     transition: var(--transition-fast);
     text-align: center;
 }
@@ -155,8 +170,8 @@ button {
 }
 
 .btn-filled:hover {
-    background-color: transparent;
-    color: var(--color-gold);
+    background-color: var(--color-black);
+    border-color: var(--color-black);
 }
 
 .btn-outline-white {
@@ -213,7 +228,7 @@ button {
 }
 
 .navbar.scrolled {
-    background-color: rgba(250, 247, 242, 0.95);
+    background-color: rgba(248, 246, 244, 0.98);
     backdrop-filter: blur(10px);
     padding: 15px 0;
     box-shadow: var(--shadow-soft);
@@ -228,7 +243,7 @@ button {
 .logo {
     font-family: var(--font-serif);
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-black);
     letter-spacing: 1px;
 }
@@ -248,6 +263,7 @@ button {
 
 .nav-links a {
     font-size: 0.9rem;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--color-black);
@@ -265,7 +281,7 @@ button {
     bottom: 0;
     left: 0;
     width: 0;
-    height: 1px;
+    height: 2px;
     background-color: var(--color-gold);
     transition: var(--transition-fast);
 }
@@ -305,12 +321,12 @@ button {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 300px;
+    width: 320px;
     height: 100vh;
-    background-color: var(--color-off-white);
+    background-color: var(--color-white);
     z-index: 1001;
     padding: 80px 40px;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
     transition: right var(--transition-slow);
 }
 
@@ -322,7 +338,7 @@ button {
     position: absolute;
     top: 30px;
     right: 30px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--color-black);
 }
 
@@ -334,7 +350,7 @@ button {
 
 .mobile-nav-links a {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--color-black);
 }
 
@@ -345,9 +361,17 @@ button {
 }
 
 @media (max-width: 1024px) {
-    .nav-links { display: none; }
-    .nav-actions .btn { display: none; }
-    .hamburger { display: block; }
+    .nav-links {
+        display: none;
+    }
+
+    .nav-actions .btn {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }
 
 /* ==========================================================================
@@ -385,11 +409,11 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(26,26,26,0.3), rgba(26,26,26,0.7));
+    background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.85));
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     padding-top: 80px;
 }
 
@@ -400,20 +424,21 @@ button {
     letter-spacing: 4px;
     margin-bottom: 20px;
     color: var(--color-gold);
+    font-weight: 500;
 }
 
 .headline {
-    font-size: 5.5rem;
+    font-size: 5rem;
     color: var(--color-white);
     margin-bottom: 25px;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 .tagline {
     font-size: 1.2rem;
     font-weight: 300;
     margin-bottom: 40px;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-btns {
@@ -433,14 +458,33 @@ button {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-    40% { transform: translate(-50%, -15px); }
-    60% { transform: translate(-50%, -7px); }
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    40% {
+        transform: translate(-50%, -15px);
+    }
+
+    60% {
+        transform: translate(-50%, -7px);
+    }
 }
 
 @media (max-width: 768px) {
-    .headline { font-size: 3.5rem; }
-    .hero-btns { flex-direction: column; align-items: center; }
+    .headline {
+        font-size: 3.5rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 /* ==========================================================================
@@ -448,7 +492,7 @@ button {
    ========================================================================== */
 .marquee-section {
     background-color: var(--color-taupe);
-    padding: 25px 0;
+    padding: 30px 0;
     overflow: hidden;
     position: relative;
     border-bottom: 1px solid var(--color-border);
@@ -470,7 +514,7 @@ button {
 .marquee-content span {
     font-family: var(--font-serif);
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
     display: flex;
@@ -480,17 +524,22 @@ button {
 
 .marquee-content i {
     color: var(--color-gold);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .marquee-content .divider {
     color: var(--color-black);
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* ==========================================================================
@@ -508,7 +557,7 @@ button {
 }
 
 .about-image img {
-    border-radius: 4px;
+    border-radius: 2px;
     box-shadow: var(--shadow-soft);
 }
 
@@ -516,13 +565,13 @@ button {
     position: absolute;
     bottom: -30px;
     right: -30px;
-    background-color: var(--color-gold);
+    background-color: var(--color-black);
     color: var(--color-white);
-    padding: 40px;
-    border-radius: 50%;
+    padding: 30px;
+    border-radius: 4px;
     text-align: center;
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -534,6 +583,7 @@ button {
     font-size: 2.5rem;
     line-height: 1;
     margin-bottom: 5px;
+    color: var(--color-gold);
 }
 
 .badge-text {
@@ -554,7 +604,7 @@ button {
 
 .about-list li {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 15px;
     margin-bottom: 15px;
     font-size: 1.05rem;
@@ -565,8 +615,15 @@ button {
 }
 
 @media (max-width: 992px) {
-    .about-container { grid-template-columns: 1fr; gap: 60px; }
-    .floating-badge { right: 20px; bottom: -20px; }
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .floating-badge {
+        right: 20px;
+        bottom: -20px;
+    }
 }
 
 /* ==========================================================================
@@ -590,46 +647,41 @@ button {
 .service-card::before {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 0;
+    height: 3px;
     background-color: var(--color-gold);
     transition: var(--transition-slow);
     z-index: 1;
-    opacity: 0.05;
+    transform: scaleX(0);
+    transform-origin: left;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--color-gold);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-soft);
+    background-color: var(--color-white);
 }
 
 .service-card:hover::before {
-    height: 100%;
+    transform: scaleX(1);
 }
 
 .service-icon {
     font-size: 2.5rem;
     color: var(--color-gold);
     margin-bottom: 25px;
-    position: relative;
-    z-index: 2;
 }
 
 .service-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 15px;
-    position: relative;
-    z-index: 2;
 }
 
 .service-card p {
     color: var(--color-gray);
     margin-bottom: 25px;
-    position: relative;
-    z-index: 2;
 }
 
 .view-details {
@@ -638,10 +690,8 @@ button {
     gap: 10px;
     font-size: 0.9rem;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-black);
-    position: relative;
-    z-index: 2;
 }
 
 .view-details i {
@@ -657,11 +707,15 @@ button {
 }
 
 @media (max-width: 992px) {
-    .service-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .service-grid { grid-template-columns: 1fr; }
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ==========================================================================
@@ -703,7 +757,7 @@ button {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* ==========================================================================
@@ -711,7 +765,7 @@ button {
    ========================================================================== */
 .promo-banner {
     position: relative;
-    padding: 120px 0;
+    padding: 140px 0;
     text-align: center;
     color: var(--color-white);
 }
@@ -737,18 +791,19 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(26,26,26,0.8);
+    background-color: rgba(26, 26, 26, 0.85);
 }
 
 .promo-content {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .promo-content h2 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     color: var(--color-white);
     margin-bottom: 20px;
+    line-height: 1.3;
 }
 
 .promo-content p {
@@ -758,7 +813,7 @@ button {
 }
 
 /* ==========================================================================
-   8. Popular Treatments (Tabs)
+   8. Portfolio/Projects (Tabs)
    ========================================================================== */
 .tab-filters {
     display: flex;
@@ -769,18 +824,20 @@ button {
 }
 
 .tab-btn {
-    padding: 10px 25px;
-    font-size: 1rem;
+    padding: 10px 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     border: 1px solid var(--color-border);
     transition: var(--transition-fast);
 }
 
-.tab-btn.active, .tab-btn:hover {
-    background-color: var(--color-gold);
+.tab-btn.active,
+.tab-btn:hover {
+    background-color: var(--color-black);
     color: var(--color-white);
-    border-color: var(--color-gold);
+    border-color: var(--color-black);
 }
 
 .treatments-grid {
@@ -797,17 +854,22 @@ button {
 }
 
 .treatment-card:hover {
-    box-shadow: var(--shadow-soft);
-    border-color: var(--color-gold);
+    box-shadow: var(--shadow-hover);
 }
 
 .treatment-img {
-    flex: 0 0 40%;
+    flex: 0 0 45%;
+    overflow: hidden;
 }
 
 .treatment-img img {
     height: 100%;
     object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.treatment-card:hover .treatment-img img {
+    transform: scale(1.05);
 }
 
 .treatment-info {
@@ -818,41 +880,38 @@ button {
     justify-content: center;
 }
 
-.t-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    border-bottom: 1px dashed var(--color-border);
-    padding-bottom: 15px;
-}
-
 .t-heading h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0;
-}
-
-.t-price {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    color: var(--color-gold);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
 }
 
 .t-duration {
-    color: var(--color-gray);
+    color: var(--color-gold);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
 
 @media (max-width: 992px) {
-    .treatments-grid { grid-template-columns: 1fr; }
+    .treatments-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 576px) {
-    .treatment-card { flex-direction: column; }
-    .treatment-img { flex: none; height: 250px; }
+    .treatment-card {
+        flex-direction: column;
+    }
+
+    .treatment-img {
+        flex: none;
+        height: 250px;
+    }
 }
 
 /* ==========================================================================
@@ -865,10 +924,12 @@ button {
 }
 
 .testimonial-card {
-    background-color: var(--color-off-white);
+    background-color: var(--color-white);
     padding: 50px 40px;
-    border-radius: 4px;
+    border-radius: 2px;
     box-shadow: var(--shadow-soft);
+    position: relative;
+    border-top: 3px solid var(--color-gold);
 }
 
 .stars {
@@ -878,12 +939,11 @@ button {
 }
 
 .quote {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-style: italic;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 30px;
-    color: var(--color-black);
+    color: var(--color-gray);
 }
 
 .client-info {
@@ -892,17 +952,10 @@ button {
     gap: 15px;
 }
 
-.client-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
 .client-details h4 {
     font-family: var(--font-sans);
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 2px;
 }
 
@@ -914,234 +967,13 @@ button {
 }
 
 @media (max-width: 992px) {
-    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ==========================================================================
-   10. Team
-   ========================================================================== */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
-
-.team-card {
-    text-align: center;
-}
-
-.team-img-wrapper {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.team-img {
-    width: 100%;
-    transition: var(--transition-slow);
-}
-
-.team-socials {
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    width: 100%;
-    background-color: rgba(201, 169, 110, 0.9);
-    padding: 15px 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    transition: var(--transition-fast);
-}
-
-.team-socials a {
-    color: var(--color-white);
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: rgba(255,255,255,0.2);
-}
-
-.team-socials a:hover {
-    background-color: var(--color-white);
-    color: var(--color-gold);
-}
-
-.team-card:hover .team-socials {
-    bottom: 0;
-}
-
-.team-card:hover .team-img {
-    transform: scale(1.05);
-}
-
-.team-info h3 {
-    font-size: 1.6rem;
-    margin-bottom: 5px;
-}
-
-.team-info span {
-    color: var(--color-gray);
-    font-size: 0.95rem;
-}
-
-@media (max-width: 992px) {
-    .team-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 576px) {
-    .team-grid { grid-template-columns: 1fr; }
-}
-
-/* ==========================================================================
-   11. Gallery
-   ========================================================================== */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    display: block;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-slow);
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(26,26,26,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-white);
-    font-size: 2rem;
-    opacity: 0;
-    transition: var(--transition-fast);
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-@media (max-width: 1200px) {
-    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (max-width: 576px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ==========================================================================
-   12. Blog
-   ========================================================================== */
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.blog-card {
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-soft);
-}
-
-.blog-img {
-    position: relative;
-    overflow: hidden;
-}
-
-.blog-img img {
-    width: 100%;
-    transition: var(--transition-slow);
-}
-
-.blog-card:hover .blog-img img {
-    transform: scale(1.05);
-}
-
-.blog-category {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: var(--color-white);
-    color: var(--color-black);
-    padding: 5px 15px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.blog-content {
-    padding: 30px;
-}
-
-.blog-date {
-    display: block;
-    color: var(--color-gold);
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-.blog-content h3 {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-}
-
-.blog-content h3 a:hover {
-    color: var(--color-gold);
-}
-
-.blog-content p {
-    color: var(--color-gray);
-    margin-bottom: 20px;
-}
-
-.read-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-black);
-}
-
-.read-more i {
-    transition: var(--transition-fast);
-}
-
-.read-more:hover {
-    color: var(--color-gold);
-}
-
-.read-more:hover i {
-    transform: translateX(5px);
-}
-
-@media (max-width: 992px) {
-    .blog-grid { grid-template-columns: 1fr; }
-}
-
-/* ==========================================================================
-   13. Appointment Banner
+   10. Booking / Contact Form Integration
    ========================================================================== */
 .booking-section {
     background-color: var(--color-black);
@@ -1168,12 +1000,17 @@ button {
 }
 
 .booking-info p {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 40px;
     font-size: 1.1rem;
 }
 
-.contact-direct {
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-method {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -1182,39 +1019,40 @@ button {
 .contact-icon {
     width: 60px;
     height: 60px;
-    background-color: rgba(201, 169, 110, 0.1);
+    background-color: rgba(184, 153, 71, 0.1);
     border: 1px solid var(--color-gold);
     color: var(--color-gold);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    border-radius: 50%;
+    border-radius: 2px;
 }
 
-.contact-direct span {
+.contact-method span {
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
 }
 
-.contact-direct h4 {
+.contact-method h4 {
     font-family: var(--font-sans);
     color: var(--color-white);
-    font-size: 1.5rem;
-    margin-top: 5px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 2px;
 }
 
 .booking-form-wrapper {
     flex: 1;
-    background-color: var(--color-gold);
+    background-color: var(--color-taupe);
     padding: 100px 50px;
-    color: var(--color-white);
+    color: var(--color-black);
 }
 
 .booking-form h3 {
-    color: var(--color-white);
+    color: var(--color-black);
     font-size: 2.2rem;
     margin-bottom: 30px;
 }
@@ -1223,13 +1061,13 @@ button {
     margin-bottom: 20px;
 }
 
-.form-group input, 
+.form-group input,
 .form-group select {
     width: 100%;
     padding: 15px 20px;
-    background-color: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: var(--color-white);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    color: var(--color-black);
     font-family: var(--font-sans);
     font-size: 1rem;
     outline: none;
@@ -1238,43 +1076,49 @@ button {
 
 .form-group input::placeholder,
 .form-group select {
-    color: rgba(255,255,255,0.8);
+    color: var(--color-gray);
 }
 
 .form-group select option {
     color: var(--color-black);
 }
 
-.form-group input:focus, 
+.form-group input:focus,
 .form-group select:focus {
-    border-color: var(--color-white);
-    background-color: rgba(255,255,255,0.2);
+    border-color: var(--color-gold);
 }
 
 .form-submit {
     width: 100%;
-    background-color: var(--color-white);
-    color: var(--color-gold);
+    background-color: var(--color-black);
+    color: var(--color-white);
     border: none;
     padding: 18px;
     font-size: 1rem;
+    font-weight: 500;
 }
 
 .form-submit:hover {
-    background-color: var(--color-black);
+    background-color: var(--color-gold);
     color: var(--color-white);
 }
 
 @media (max-width: 992px) {
-    .booking-container { flex-direction: column; }
-    .booking-info, .booking-form-wrapper { padding: 60px 20px; }
+    .booking-container {
+        flex-direction: column;
+    }
+
+    .booking-info,
+    .booking-form-wrapper {
+        padding: 60px 20px;
+    }
 }
 
 /* ==========================================================================
-   14. Footer
+   11. Footer
    ========================================================================== */
 .footer {
-    background-color: var(--color-taupe);
+    background-color: var(--color-white);
     padding-top: 80px;
 }
 
@@ -1303,12 +1147,12 @@ button {
 .footer-socials a {
     width: 40px;
     height: 40px;
-    background-color: var(--color-white);
+    background-color: var(--color-off-white);
     color: var(--color-black);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 2px;
 }
 
 .footer-socials a:hover {
@@ -1317,10 +1161,10 @@ button {
 }
 
 .footer-col h4 {
-    font-family: var(--font-sans);
-    font-size: 1.2rem;
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
     margin-bottom: 25px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .links-col ul li {
@@ -1360,23 +1204,32 @@ button {
 .back-to-top {
     width: 40px;
     height: 40px;
-    background-color: var(--color-gold);
+    background-color: var(--color-black);
     color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 2px;
 }
 
 .back-to-top:hover {
-    background-color: var(--color-black);
+    background-color: var(--color-gold);
 }
 
 @media (max-width: 992px) {
-    .footer-top { grid-template-columns: 1fr 1fr; }
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width: 576px) {
-    .footer-top { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
 }
